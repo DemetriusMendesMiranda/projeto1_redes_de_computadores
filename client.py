@@ -150,7 +150,7 @@ def main():
             elif line.startswith('/sendfile '):
                 _, path = line.split(' ', 1)
                 send_file(sock, path.strip(), seq)
-                # adjust seq: estimate how many chunks were sent? keep simple: increment once
+        
                 seq = (seq + 1) % 65536
             else:
                 send_msg(sock, line, seq); seq = (seq + 1) % 65536
